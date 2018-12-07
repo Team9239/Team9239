@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Drive Forward")
-public class driveForwardAuto extends LinearOpMode {
+@Autonomous(name = "Descend")
+public class descendAuto extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDriveMotor = null;
@@ -33,13 +33,12 @@ public class driveForwardAuto extends LinearOpMode {
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() <= 6)
         {
-            if(runtime.seconds() <= 1.1) {
-                leftDriveMotor.setPower(1.0);
-                rightDriveMotor.setPower(1.0);
+            if(runtime.seconds() <= 5) {
+                armMotor.setPower(0.25);
+                //leftDriveMotor.setPower(1.0);
+                //rightDriveMotor.setPower(1.0);
             }
             else {
-                leftDriveMotor.setPower(0.0);
-                rightDriveMotor.setPower(0.0);
                 armMotor.setPower(0.0);
             }
         }
